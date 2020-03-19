@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function battery() {
+        this.setEnergy= function (energy) {
+            this.energy=energy;
+        };
+        this.checkEnergy= function () {
+            return this.energy;
+        };
+        this.decreaseEnergy=function () {
+            if (this.energy>0) {
+                this.energy --;
+            }
+        }
+    }
+    function FlashLamp() {
+            this.status = false;
+            this.setBattery=function (battery) {
+                this.battery=battery;
+            };
+            this.getBattery=function () {
+                return this.battery.checkEnergy()
+            }
+            this.light =function () {
+                if (this.status==true) {
+                    console.log('light');
+                } else {
+                    console.log('no light');
+                }
+            }
+            this.turnOn =function () {
+                this.status = true;
+            }
+            this.turnOff = function () {
+                this.status=false;
+            }
+            this.checkStatus=function () {
+                return this.status;
+            }
+    }
+    let panasonic = new battery();
+    panasonic.setEnergy(30)
+    let den = new FlashLamp();
+    den.setBattery(panasonic);
+    den.getBattery();
+    den.light();
+    den.turnOn();
+    console.log(den.checkStatus());
+    den.turnOn();
+    console.log(den.checkStatus());
+    den.turnOff()
+    console.log(den.checkStatus());
+    den.turnOn();
+    console.log(den.checkStatus());
+    den.light()
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple() {
+        this.weight=10;
+        this.decrease=function () {
+            if (this.weight>0) {
+                this.weight--;
+            }
+        }
+        this.empty=function () {
+            if (this.weight ==0 ) {
+                this.isEmpty=false;
+            } else {
+                this.isEmpty=true;
+            }
+        }
+        this.checkWeight=function () {
+            return this.weight;
+        }
+    }
+    function Human(name,gender,weight) {
+        this.name=name;
+        this.gender=gender;
+        this.weight=weight;
+        this.talking=function (text) {
+            console.log(name +' talking : ' + text);
+        }
+        this.eatApple=function (Apple) {
+            if (Apple.weight >0 ) {
+                Apple.decrease();
+                this.weight ++;
+            } else {
+                console.log('Apple weight is 0');
+            }
+        }
+        this.checkApple=function (Apple) {
+            console.log(Apple.weight)
+        }
+        this.checkHuman=function (Human) {
+            console.log(Human.name+','+Human.gender+','+Human.weight)
+        }
+    }
+    let redApple = new Apple()
+    let adam=new Human('Adam','male',60);
+    let eva=new Human('Eva','female',50);
+    adam.talking('hello');
+    eva.checkHuman(adam);
+    eva.talking('hello, nice to meet you');
+    adam.talking('wanna eat apple ?');
+    eva.talking('Of course');
+    adam.checkApple(redApple);
+    eva.eatApple(redApple);
+    eva.checkApple(redApple);
+    adam.eatApple(redApple);
+    adam.eatApple(redApple);
+    adam.eatApple(redApple);
+    adam.eatApple(redApple);
+    adam.eatApple(redApple);
+    adam.eatApple(redApple);
+    eva.checkApple(redApple);
+    eva.eatApple(redApple);
+    eva.eatApple(redApple);
+    eva.eatApple(redApple);
+    adam.checkApple(redApple);
+    adam.eatApple(redApple);
+    adam.talking('well done')
+</script>
+</body>
+</html>
